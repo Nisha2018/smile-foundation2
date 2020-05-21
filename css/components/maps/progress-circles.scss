@@ -1,0 +1,380 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+/*
+// chart Circles
+// ================ */
+$animation-delay: 0s;
+$animation-length: 0.9s;
+$animation-type: cubic-bezier(0.8, 0.2, .6, .6);
+
+.bg-shaded {
+	position: relative;
+
+	& > * {
+		z-index: 3;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, .92);
+		z-index: 2;
+
+  }
+  &_dark:after{
+    background-color: rgba(0, 0, 0, 0.76);
+  }
+}
+
+.chart {
+	background: none;
+	position: relative;
+	z-index: 5;
+
+	&__wrapper {
+		min-height: 460px;
+		display: flex;
+		flex-direction: column;
+    align-items: center;
+    &_short{
+      min-height: 400px;
+    }
+    &_single{
+      min-height: 0;
+    }
+    @media screen and (max-width: 991px){ 
+      min-height: 300px;
+    }
+    &_light{
+      .chart__circle-meter{
+        stroke: rgba(256,256,256,0.2)
+      }
+      .chart__title{
+        color: #fff;
+      }
+    }
+	}
+
+	&__svg-holder {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: rotate(-90deg);
+	}
+
+	&__svg {
+		display: block;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: absolute;
+	}
+
+	&__title {
+		color: #272727;
+	}
+
+	&__circle {
+		position: relative;
+		background: none;
+		border-radius: 100%;
+		display: flex;
+		height: 170px;
+		width: 170px;
+		margin: 0 auto;
+
+		&-dot {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			&-wrapper {
+				z-index: 100;
+				pointer-events: none;
+				width: 50%;
+				height: 50%;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform-origin: bottom left;
+				transform: rotate(90deg);
+				transition-property: \transform;
+				transition-timing-function: $animation-type;
+				transition-duration: $animation-length;
+				transition-delay: $animation-delay;
+			}
+		}
+
+		.icon {
+			&__centered {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&-value {
+			transition-property: all;
+			transition-timing-function: $animation-type;
+			transition-duration: $animation-length;
+			transition-delay: $animation-delay;
+			stroke-linecap: round;
+		}
+
+		&-counter {
+			text-indent: 4px;
+    }
+	}
+}
+
+.chart-minimal {
+	.chart__circle {
+		flex-flow: column;
+		padding-top: 60px;
+
+		&-dot {
+			width: 22px;
+			height: 22px;
+			border: 5px solid $white;
+			border-radius: 100%;
+			background: var(--brand-primary);
+			box-shadow: 0 2px 7px 0 rgba(var(--brand-primary-rgb), .36);
+			margin-left: -11px;
+			margin-top: -6px;
+		}
+
+		&-counter {
+			color: var(--brand-primary);
+			display: block;
+			width: 100%;
+			margin-bottom: 4px;
+		}
+	}
+}
+
+.chart-light {
+	.h5, h5 {
+		color: $white;
+		font-smoothing: antialiased;
+	}
+
+	.chart__circle {
+		&-dot {
+			width: 12px;
+			height: 12px;
+			border-radius: 100%;
+			border: 3px solid $white;
+			background: var(--brand-primary);
+			box-shadow: 0 2px 7px 0 rgba(var(--brand-primary-rgb), .36);
+			margin-left: -6px;
+
+			&-wrapper {
+				width: 65px;
+				height: 65px;
+				right: 0;
+				left: auto;
+				margin: 20px;
+			}
+		}
+	}
+}
+
+.chart-light,
+.chart-triangled,
+.chart-vertical {
+	.chart__circle {
+
+		&-counter {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			transform: translate(0, -50%);
+			color: var(--brand-primary);
+		}
+	}
+}
+
+.chart-triangled {
+	.chart__circle {
+		&-dot {
+			border-top: 14px solid var(--brand-primary);
+			border-left: 14px solid transparent;
+			border-right: 14px solid transparent;
+			width: 0;
+			height: 0;
+			box-shadow: none;
+			margin-top: -24px;
+			margin-left: -14px;
+		}
+	}
+}
+
+.chart-light,
+.chart-vertical,
+.chart-2circles {
+	.chart__circle {
+		background: $white;
+	}
+}
+
+.chart-vertical {
+	.chart {
+		&__title {
+			text-transform: uppercase;
+		}
+
+		&__circle {
+			border: 2px solid $white;
+      overflow: hidden;
+      &_dark{
+        border: 4px solid $white;
+      }
+
+			&-counter {
+				color: $white;
+				z-index: 3;
+				transition: all;
+				transition-timing-function: $animation-type;
+				transition-duration: $animation-length;
+				transition-delay: $animation-delay;
+				top: -50%;
+
+				&-wrapper {
+
+				}
+			}
+
+			&-counter-over {
+				position: absolute;
+				top: 50%;
+				color: $white;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				transform: translate(0, -50%);
+				font-size: 42px;
+				font-weight: 200;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				vertical-align: top;
+				font-family: Montserrat, sans-serif;
+				z-index: 1;
+			}
+
+			.gradient {
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				top: 100%;
+				left: 0;
+				z-index: 2;
+				transition: all;
+				transition-timing-function: $animation-type;
+				transition-duration: $animation-length;
+				transition-delay: $animation-delay;
+				position: absolute;
+
+				& > .gradient-bg {
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background: linear-gradient(to bottom, var(--brand-primary) 0%, var(--secondary) 100%);
+					transition: all;
+					transition-timing-function: $animation-type;
+					transition-duration: $animation-length;
+					transition-delay: $animation-delay;
+					position: absolute;
+				}
+			}
+		}
+	}
+}
+
+.chart-icon {
+	.chart {
+		&__title {
+			text-transform: uppercase;
+		}
+
+		&__circle {
+
+			&-counter {
+				display: none;
+			}
+
+			&-value {
+				stroke-linecap: square;
+			}
+
+			.icon {
+				text-align: center;
+				width: 100%;
+				height: auto;
+
+				i {
+					vertical-align: middle;
+					font-size: 56px;
+				}
+			}
+		}
+	}
+}
+
+.chart-2circles {
+	.chart__circle {
+		box-shadow: 0 3px 25px rgba(var(--brand-primary-rgb), .25);
+		border: none;
+
+		&-value {
+			stroke-linecap: square;
+		}
+
+		&-counter {
+			display: block;
+			position: absolute;
+			top: -10px;
+			right: -10px;
+			width: 45px;
+			height: 45px;
+			border-radius: 100%;
+			box-shadow: 0 5px 16px rgba(var(--brand-primary-rgb), .5);
+			line-height: 45px;
+			vertical-align: middle;
+			text-align: center;
+			z-index: 3;
+			background: var(--brand-primary);
+			color: $white;
+		}
+
+		.icon {
+			height: 120px;
+			width: 120px;
+			line-height: 120px;
+			vertical-align: middle;
+			box-shadow: 0 0 40px 10px rgba(var(--brand-primary-rgb), .23);
+      border-radius: 100%;
+      text-align: center;
+
+			i {
+				line-height: 120px;
+				vertical-align: middle;
+				font-size: 46px;
+				color: #272727;
+			}
+		}
+	}
+}
