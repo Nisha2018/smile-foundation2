@@ -3,7 +3,6 @@ const link = document.querySelectorAll(".link");
 const contact = document.querySelector(".contact-info");
 
 window.addEventListener('scroll', () => {
-    console.log(pageYOffset);
 
     if (window.pageYOffset >= 30) {
         header.style.position = "fixed";
