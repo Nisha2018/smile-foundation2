@@ -24,6 +24,10 @@
     font-weight: 700;
 }
 
+.link:hover{
+    color: #76c04e;
+}
+
 .link-dark .link{
     color: #272727;
 }
