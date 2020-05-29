@@ -1,4 +1,4 @@
-.header {
+/*.header {
     padding: 20px 28px;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -39,7 +39,7 @@
 }
 
 /*desktop view*/
-@media only screen and (min-width: 991px) {
+/*@media only screen and (min-width: 991px) {
     .header {
         padding: 30px 45px;
         grid-template-columns: 1fr 1fr;
@@ -58,11 +58,11 @@
         font-size: 20px;
     }
 }
-
+*/
 
 /*image carousel*/
 
-.text {
+/*.text {
     display: flex;
     color: #fff;
     font-size: 14px;
@@ -80,75 +80,76 @@
     position: relative;
     opacity: 0;
     animation: animate 0.8s ease-in-out forwards;
+    animation-delay: 5s;
 }
 
 .text span:nth-child(1) {
-    animation-delay: 0.3s;
+    animation-delay: 5s;
 }
 
 .text span:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: 5.1s;
 }
 
 .text span:nth-child(3) {
-    animation-delay: 0.5s;
+    animation-delay: 5.2s;
 }
 
 .text span:nth-child(4) {
-    animation-delay: 0.6s;
+    animation-delay: 5.3s;
 }
 
 .text span:nth-child(5) {
-    animation-delay: 0.7s;
+    animation-delay: 5.4s;
 }
 
 .text span:nth-child(6) {
-    animation-delay: 0.8s;
+    animation-delay: 5.5s;
     font-weight: 700;
 }
 
 .text span:nth-child(7) {
-    animation-delay: 0.9s;
+    animation-delay: 5.6s;
     font-weight: 700;
 }
 
 .text span:nth-child(8) {
-    animation-delay: 1s;
+    animation-delay: 5.7s;
     font-weight: 700;
 }
 
 .text span:nth-child(9) {
-    animation-delay: 1.1s;
+    animation-delay: 5.8s;
     font-weight: 700;
 }
 
 .text span:nth-child(10) {
-    animation-delay: 1.2s;
+    animation-delay: 5.9s;
     font-weight: 700;
 }
 
 .text span:nth-child(11) {
-    animation-delay: 1.3s;
+    animation-delay: 6s;
     font-weight: 700;
 }
 
 .text span:nth-child(12) {
-    animation-delay: 1.4s;
+    animation-delay: 6.1s;
     font-weight: 700;
 }
 
 .text span:nth-child(13) {
-    animation-delay: 1.5s;
+    animation-delay: 6.2s;
     font-weight: 700;
 }
 
 .text span:nth-child(14) {
-    animation-delay: 1.6s;
+    animation-delay: 6.3s;
     font-weight: 700;
 }
 
 .text span:nth-child(15) {
-    animation-delay: 1.7s;
+    animation-delay: 6.4s;
     font-weight: 700;
 }
 
@@ -171,7 +172,7 @@
         right: 0px;
     }
 }
-
+*/
 .slider {
     position: relative;
     overflow: hidden;
@@ -197,7 +198,6 @@
     position: absolute;
     /*bottom: 70px;*/
     left: -600px;
-    opacity: 0;
     width: 32%;
     height: 100%;
     background-color: #0e0e0e;
@@ -208,11 +208,13 @@
 }
 
 .slide .content h1 {
-    margin-bottom: 10px;
+    position: absolute;
+    width: 1000px;
+    color: #fff;
+    left: 50%;
 }
 
 .slide.current .content {
-    opacity: 1;
     transform: translateX(600px);
     transition: all 0.7s ease-in-out 0.3s;
 }
@@ -292,11 +294,11 @@
 /* Backgorund Images */
 
 .slide:first-child {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/1.jpg') no-repeat center top/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/1-min.jpg') no-repeat center top/cover;
 }
 
 .slide:nth-child(2) {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/2.jpg') no-repeat center top/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/2-min.jpg') no-repeat center top/cover;
 }
 
 .slide:nth-child(3) {
@@ -304,10 +306,23 @@
 }
 
 .slide:nth-child(4) {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/4.jpg') no-repeat center top/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/4-min.jpg') no-repeat center top/cover;
 }
 
 .slide:nth-child(5) {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/5.jpg') no-repeat center top/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.95)), url('../img/demo_minimalistic_portfolio/5-min.jpg') no-repeat center top/cover;
 
+}
+
+
+/*anime text animation*/
+
+.ml2 {
+  font-weight: 900;
+  font-size: 7.5em;
+}
+
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
 }
